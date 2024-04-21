@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.2.xsd">
+    <changeSet id="3" author="mps2k1">
+        <createTable tableName="flights_passengers">
+            <column name="passenger_id" type="bigint"></column>
+            <column name="flight_id" type="bigint"/>
+        </createTable>
+        <addForeignKeyConstraint baseTableName="flights_passengers" baseColumnNames="passenger_id" constraintName="fk_passenger_id" referencedTableName="passengers"
+                                 referencedColumnNames="id"/>
+        <addForeignKeyConstraint baseTableName="flights_passengers" baseColumnNames="flight_id" constraintName="fk_flight_id" referencedTableName="flights"
+                                 referencedColumnNames="id"/>
+    </changeSet>
+</databaseChangeLog>
